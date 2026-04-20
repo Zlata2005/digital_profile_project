@@ -596,3 +596,24 @@ body.dark-theme .quiz-container div[style*="background: #f8f9fa"] li,
 body.dark-theme .quiz-container div[style*="background:#f8f9fa"] li {
     color: #c0c0e0 !important;
 }
+
+
+/**/
+/* -------------------- ТЁМНАЯ ТЕМА: БЛОК РЕЗУЛЬТАТА КВИЗА -------------------- */
+body.dark-theme .result-card {
+    background: #2d2d44 !important;      /* тёмный фон вместо светло-серого */
+    color: #e0e0e0 !important;           /* светлый текст */
+}
+body.dark-theme .result-card h3 {
+    color: #ffffff !important;            /* белый заголовок */
+}
+body.dark-theme .result-card p {
+    color: #c0c0e0 !important;            /* светло-серый текст абзацев */
+}
+body.dark-theme .result-card i {
+    color: #a0b4ff !important;            /* иконки – светло-синие */
+} 
+/**/
+body.dark-theme #result-content {
+    color: #e0e0e0;
+}
