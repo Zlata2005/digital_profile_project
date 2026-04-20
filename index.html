@@ -1,13 +1,21 @@
 <!DOCTYPE html>
+<!-- 1. Тип документа HTML5 -->
 <html lang="ru">
+<!-- 2. Корневой элемент: язык страницы русский -->
 <head>
+    <!-- 3. Кодировка UTF-8 (поддержка всех символов) -->
     <meta charset="UTF-8">
+    <!-- 4. Адаптивный viewport: ширина = ширине устройства, масштаб 100% -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 5. Заголовок вкладки браузера -->
     <title>Цифровой профиль Ульяновской области</title>
+    <!-- 6. Подключение основного CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- 7. Подключение иконок Font Awesome (внешний ресурс, не фреймворк) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- 8. Шапка сайта с навигацией -->
     <header>
         <h1><i class="fas fa-chart-line"></i> Цифровой профиль Ульяновской области</h1>
         <nav>
@@ -18,25 +26,29 @@
             <a href="quiz.html"><i class="fas fa-question-circle"></i> Квиз</a>
             <a href="calculator.html"><i class="fas fa-calculator"></i> Калькулятор</a>
         </nav>
+        <!-- 9. Кнопка переключения тёмной темы (сохраняет выбор) -->
         <div style="text-align: right; margin-top: -40px; margin-right: 20px;">
             <button id="themeToggle" class="theme-btn" style="background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer;">
-                <i class="fas fa-moon"></i>
+                <i class="fas fa-moon"></i> <!-- иконка луны (светлая тема) -->
             </button>
         </div>
     </header>
 
+    <!-- 10. Основной контейнер -->
     <div class="container">
         <h2 class="page-title">Ваш гид по карьере в регионе</h2>
 
-        <!-- Блок статистики (кликабельные карточки) -->
+        <!-- 11. Блок статистики (три кликабельные карточки) -->
         <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 40px;">
+            <!-- Карточка-ссылка на страницу профессий -->
             <a href="professions.html" class="card-link" style="text-decoration: none; display: block; width: 220px;">
                 <div class="card" style="text-align: center; width: 100%;">
                     <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #4361ee;"></i>
-                    <h3 id="profCount">0</h3>
+                    <h3 id="profCount">0</h3> <!-- сюда JS вставит количество профессий -->
                     <p>профессий</p>
                 </div>
             </a>
+            <!-- Карточка-ссылка на страницу компаний -->
             <a href="companies.html" class="card-link" style="text-decoration: none; display: block; width: 220px;">
                 <div class="card" style="text-align: center; width: 100%;">
                     <i class="fas fa-building" style="font-size: 2.5rem; color: #4361ee;"></i>
@@ -44,6 +56,7 @@
                     <p>компаний</p>
                 </div>
             </a>
+            <!-- Карточка-ссылка на страницу образования -->
             <a href="education.html" class="card-link" style="text-decoration: none; display: block; width: 220px;">
                 <div class="card" style="text-align: center; width: 100%;">
                     <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: #4361ee;"></i>
@@ -53,12 +66,13 @@
             </a>
         </div>
 
-        <!-- Блок "Актуальность и решение проблемы" -->
+        <!-- 12. Блок "Актуальность и решение проблемы" (НОВЫЙ) -->
         <div style="background: white; border-radius: 28px; padding: 30px; margin: 40px 0; box-shadow: var(--shadow);">
             <h3 style="font-size: 1.6rem; margin-bottom: 20px; color: var(--primary);">
                 <i class="fas fa-chart-line"></i> Актуальность для региона
             </h3>
             <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;">
+                <!-- Левая карточка: проблема -->
                 <div style="flex: 1; min-width: 200px;">
                     <div style="background: #fee2e2; border-radius: 20px; padding: 20px; height: 100%;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #b91c1c;"></i>
@@ -70,9 +84,11 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Стрелка-разделитель -->
                 <div style="display: flex; align-items: center; font-size: 2rem; color: var(--primary);">
                     <i class="fas fa-arrow-right"></i>
                 </div>
+                <!-- Правая карточка: решение -->
                 <div style="flex: 1; min-width: 200px;">
                     <div style="background: #d1e7dd; border-radius: 20px; padding: 20px; height: 100%;">
                         <i class="fas fa-check-circle" style="font-size: 2rem; color: #0f5132;"></i>
@@ -85,6 +101,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Дополнительная статистика -->
             <div style="margin-top: 30px; text-align: center; background: #eef2ff; border-radius: 20px; padding: 20px;">
                 <p style="font-size: 1.2rem;">
                     <i class="fas fa-chart-simple"></i> По данным Центра занятости Ульяновской области, 
@@ -94,7 +111,7 @@
             </div>
         </div>
 
-        <!-- Приветственный блок -->
+        <!-- 13. Приветственный блок с кнопками -->
         <div style="background: white; border-radius: 28px; padding: 40px; box-shadow: var(--shadow); text-align: center;">
             <p style="font-size: 1.3rem; margin-bottom: 30px;">
                 Актуальные цифровые профессии, ведущие работодатели и программы обучения – всё в одном месте.
@@ -106,18 +123,21 @@
         </div>
     </div>
 
+    <!-- 14. Подвал -->
     <footer>
         <p>Цифровой профиль региона. Проект для недели студенческой науки. Выставка программных продуктов</p>
-        <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> info@digit73.ru</p>
+        <!-- <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> info@digit73.ru</p> -->
     </footer>
 
+    <!-- 15. Подключение скриптов -->
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
+    <!-- 16. Анимированный счётчик статистики (НОВЫЙ) -->
     <script>
         function animateCounter(elementId, targetNumber, duration = 1500) {
             const element = document.getElementById(elementId);
             if (!element) return;
-            let steps = duration / 16;
+            let steps = duration / 16;   // примерно 60 кадров в секунду
             let increment = targetNumber / steps;
             let current = 0;
             function update() {

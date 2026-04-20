@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квиз: IT-профессии – Цифровой профиль</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-chart-line"></i> Цифровой профиль Ульяновской области</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+            <a href="professions.html"><i class="fas fa-briefcase"></i> Профессии</a>
+            <a href="companies.html"><i class="fas fa-building"></i> Компании</a>
+            <a href="education.html"><i class="fas fa-graduation-cap"></i> Обучение</a>
+            <a href="quiz.html"><i class="fas fa-question-circle"></i> Квиз</a>
+            <a href="calculator.html"><i class="fas fa-calculator"></i> Калькулятор</a>
+        </nav>
+        <div style="text-align: right; margin-top: -40px; margin-right: 20px;">
+            <button id="themeToggle" class="theme-btn" style="background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="quiz-container">
+            <!-- СТАРТОВЫЙ ЭКРАН -->
+            <div id="start-screen" class="screen">
+                <h2><i class="fas fa-laptop-code"></i> Цифровой компас</h2>
+                <p>Пройдите тест из 10 вопросов и узнайте, какая IT-профессия вам подходит!</p>
+
+                <!-- НОВЫЙ БЛОК: Инструкция (короткий текст) -->
+                <div style="background: #f8f9fa; border-radius: 16px; padding: 15px; margin-top: 20px; text-align: left; border-left: 4px solid var(--primary);">
+                    <i class="fas fa-info-circle" style="color: var(--primary); margin-right: 8px;"></i>
+                    <strong>Как пройти тест:</strong>
+                    <ul style="margin: 8px 0 0 20px; color: #444;">
+                        <li>На каждый вопрос выберите один из четырёх вариантов</li>
+                        <li>Отвечайте честно – это повысит точность рекомендации</li>
+                        <li>В конце нажмите «Завершить» и получите результат</li>
+                        <li>Вы всегда можете пройти тест заново</li>
+                    </ul>
+                </div>
+
+                <button id="start-btn" class="btn" style="margin-top: 25px;"><i class="fas fa-play"></i> Начать</button>
+            </div>
+
+            <!-- ЭКРАН ВОПРОСОВ -->
+            <div id="quiz-screen" class="screen hidden">
+                <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+                <h3 id="question-text"></h3>
+                <div id="options-container" class="options"></div>
+                <div class="navigation">
+                    <button id="prev-btn" class="btn" disabled><i class="fas fa-arrow-left"></i> Назад</button>
+                    <button id="next-btn" class="btn" disabled>Далее <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- ЭКРАН РЕЗУЛЬТАТА -->
+            <div id="result-screen" class="screen hidden">
+                <h2><i class="fas fa-trophy"></i> Ваш результат</h2>
+                <div id="result-content"></div>
+                <button id="restart-btn" class="btn"><i class="fas fa-sync-alt"></i> Пройти заново</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Цифровой профиль региона. Проект для недели студенческой науки. Выставка программных продуктов</p>
+        <!-- <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> info@digit73.ru</p> -->
+    </footer>
+
+    <script src="js/quiz.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

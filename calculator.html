@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор зарплат</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-chart-line"></i> Цифровой профиль Ульяновской области</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+            <a href="professions.html"><i class="fas fa-briefcase"></i> Профессии</a>
+            <a href="companies.html"><i class="fas fa-building"></i> Компании</a>
+            <a href="education.html"><i class="fas fa-graduation-cap"></i> Обучение</a>
+            <a href="quiz.html"><i class="fas fa-question-circle"></i> Квиз</a>
+            <a href="calculator.html"><i class="fas fa-calculator"></i> Калькулятор</a>
+        </nav>
+        <div style="text-align: right; margin-top: -40px; margin-right: 20px;">
+            <button id="themeToggle" class="theme-btn" style="background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="page-title">Калькулятор зарплат</h2>
+
+        <div class="calculator-box">
+            <div class="form-group">
+                <label for="professionSelect"><i class="fas fa-briefcase"></i> Профессия:</label>
+                <select id="professionSelect"></select>
+            </div>
+            <div class="form-group">
+                <label for="experience"><i class="fas fa-chart-line"></i> Стаж (лет):</label>
+                <input type="number" id="experience" min="0" max="10" value="0" step="1">
+            </div>
+            <button onclick="calculateSalary()" class="btn" style="width: 100%; justify-content: center;"><i class="fas fa-calculator"></i> Рассчитать</button>
+            <div id="salaryResult" class="result-box"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Цифровой профиль региона. Проект для недели студенческой науки. Выставка программных продуктов</p>
+        <!-- <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> info@digit73.ru</p> -->
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>

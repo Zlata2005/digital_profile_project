@@ -1,0 +1,598 @@
+/* -------------------- 1. ПОДКЛЮЧЕНИЕ ШРИФТА -------------------- */
+/* Импортируем современный шрифт Inter с Google Fonts (400 – обычный, 500,600,700 – жирность) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* -------------------- 2. CSS-ПЕРЕМЕННЫЕ (цветовая схема) -------------------- */
+:root {
+    --primary: #4361ee;           /* Основной синий для кнопок, акцентов */
+    --primary-dark: #3a56d4;      /* Тёмный синий для наведения */
+    --secondary: #6c757d;         /* Серый для второстепенного текста */
+    --dark: #212529;              /* Почти чёрный для основного текста (светлая тема) */
+    --light: #f8f9fa;             /* Светлый фон (резерв) */
+    --white: #ffffff;             /* Белый для карточек */
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+    --border-radius: 20px;        /* Единое скругление углов */
+}
+
+/* -------------------- 3. ГЛОБАЛЬНЫЙ СБРОС -------------------- */
+* {
+    margin: 0;                    /* Убираем внешние отступы у всех элементов */
+    padding: 0;                  /* Убираем внутренние отступы */
+    box-sizing: border-box;      /* Ширина элемента включает padding и border */
+}
+
+/* -------------------- 4. БАЗОВЫЕ СТИЛИ BODY -------------------- */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Радиальный градиент: центр в точке (10% ширины, 20% высоты), от прозрачно-синего до почти белого */
+    background: radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, rgba(255, 255, 255, 0.98) 90%);
+    color: var(--dark);
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s; /* Плавная смена при переключении темы */
+    position: relative;
+}
+/* Декоративный паттерн (точки) – псевдоэлемент перед body */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 40%, rgba(67, 97, 238, 0.03) 2%, transparent 2.5%);
+    background-size: 40px 40px;
+    pointer-events: none;         /* Чтобы точки не мешали кликам */
+    z-index: 0;
+}
+
+/* -------------------- 5. ШАПКА САЙТА -------------------- */
+header {
+    background: var(--dark);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 10;
+}
+header h1 {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-size: 1.8rem;
+}
+header h1 i {
+    margin-right: 10px;
+    color: var(--primary);
+}
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+nav a i {
+    margin-right: 8px;
+}
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+nav a.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* -------------------- 6. ОСНОВНОЙ КОНТЕЙНЕР -------------------- */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* -------------------- 7. ЗАГОЛОВКИ СТРАНИЦ С АНИМАЦИЕЙ -------------------- */
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+/* Декоративная полоска под заголовком (выезжает слева) */
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), #a855f7);
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+    from { width: 0; opacity: 0; }
+    to { width: 80px; opacity: 1; }
+}
+
+/* -------------------- 8. СЕТКА КАРТОЧЕК -------------------- */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+/* -------------------- 9. СТИЛИ ОДНОЙ КАРТОЧКИ (СТЕКЛЯННЫЙ ЭФФЕКТ) -------------------- */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(2px);           /* Размытие фона под карточкой */
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.4s ease-out;
+}
+/* Цветная полоска сверху карточки */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), #a855f7, var(--primary-dark));
+    opacity: 0.8;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    background: rgba(255, 255, 255, 1);
+}
+.card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.card p {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+.card .salary {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+.card .demand {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+/* Иконки в карточках – анимация при наведении */
+.card i {
+    transition: transform 0.2s, color 0.2s;
+}
+.card:hover i {
+    transform: scale(1.1);
+    color: var(--primary);
+}
+
+/* Цвета бейджей востребованности */
+.demand-high { background: #fee2e2; color: #b91c1c; }
+.demand-medium { background: #fff3cd; color: #856404; }
+.demand-low { background: #d1e7dd; color: #0f5132; }
+
+/* -------------------- 10. КНОПКИ (ГРАДИЕНТ + СВЕЧЕНИЕ) -------------------- */
+.card button, .btn {
+    background: linear-gradient(105deg, var(--primary) 0%, #8b5cf6 100%);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 8px 20px -6px var(--primary);
+    align-self: flex-start;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.card button:hover, .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px -8px var(--primary);
+    background: linear-gradient(105deg, #3b4fcf 0%, #7c3aed 100%);
+}
+.card button:active, .btn:active {
+    transform: translateY(1px);
+}
+
+/* -------------------- 11. БЛОК ФИЛЬТРАЦИИ (СТЕКЛЯННЫЙ ЭФФЕКТ) -------------------- */
+.filter-section {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 1rem 1.5rem;
+    border-radius: 60px;
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.filter-section label {
+    font-weight: 600;
+}
+.filter-section select, .filter-section input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    background: white;
+    transition: all 0.2s;
+}
+.filter-section select:focus, .filter-section input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+/* -------------------- 12. КАЛЬКУЛЯТОР ЗАРПЛАТ -------------------- */
+.calculator-box {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.form-group select, .form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 40px;
+    font-size: 1rem;
+}
+.result-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #eef2ff;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--primary);
+}
+
+/* -------------------- 13. ПОДВАЛ -------------------- */
+footer {
+    background: var(--dark);
+    color: #aaa;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+}
+footer i {
+    margin-right: 5px;
+    color: var(--primary);
+}
+
+/* -------------------- 14. АНИМАЦИЯ ПОЯВЛЕНИЯ КАРТОЧЕК -------------------- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- 15. АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ -------------------- */
+@media (max-width: 768px) {
+    header h1 { font-size: 1.4rem; }
+    nav a { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+    .page-title { font-size: 1.8rem; }
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 24px;
+    }
+    .filter-section select, .filter-section input { width: 100%; }
+    .card-container { justify-content: center; }
+}
+
+/* -------------------- 16. СТИЛИ ДЛЯ КВИЗА -------------------- */
+.quiz-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    max-width: 700px;
+    margin: 0 auto;
+}
+.progress {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.option-btn {
+    background: #f2f2f2;
+    border: 2px solid transparent;
+    border-radius: 60px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.option-btn i { width: 24px; color: var(--primary); }
+.option-btn:hover { background: #e6e6e6; border-color: var(--primary); }
+.option-btn.selected { background: var(--primary); color: white; }
+.option-btn.selected i { color: white; }
+.navigation { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
+.result-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 20px;
+}
+@media (max-width: 500px) {
+    .result-card { flex-direction: column; text-align: center; }
+}
+
+/* -------------------- 17. ДОПОЛНИТЕЛЬНО: КЛИКАБЕЛЬНЫЕ КАРТОЧКИ-ССЫЛКИ -------------------- */
+.card-link {
+    text-decoration: none;
+    display: block;
+}
+.card-link .card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-link:hover .card {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* -------------------- 18. ТЁМНАЯ ТЕМА (ПОЛНОСТЬЮ ИСПРАВЛЕНА) -------------------- */
+/* ИЗМЕНЕНО: добавлены правила для всех элементов, чтобы текст был читаем */
+body.dark-theme {
+    background: radial-gradient(circle at 30% 10%, #0f0c29, #24243e);
+    color: #f0f0f0;
+}
+body.dark-theme::before {
+    background-image: radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.05) 2%, transparent 2.5%);
+}
+body.dark-theme .card {
+    background: rgba(30, 30, 50, 0.85);
+    backdrop-filter: blur(4px);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+}
+body.dark-theme .card h3 { color: #ffffff; }
+body.dark-theme .card p { color: #c0c0e0; }
+body.dark-theme .card .salary { color: #a0b4ff; }
+body.dark-theme .card::before {
+    background: linear-gradient(90deg, #60a5fa, #c084fc);
+}
+body.dark-theme .filter-section {
+    background: rgba(30, 30, 50, 0.8);
+    color: #f0f0f0;
+}
+body.dark-theme .filter-section select,
+body.dark-theme .filter-section input {
+    background: #1e1e2f;
+    color: #e0e0e0;
+    border-color: #3a3a5a;
+}
+body.dark-theme .calculator-box,
+body.dark-theme .quiz-container {
+    background: #2d2d44;
+    color: #e0e0e0;
+}
+body.dark-theme .form-group label { color: #f0f0f0; }
+body.dark-theme .form-group select,
+body.dark-theme .form-group input {
+    background: #1e1e2f;
+    color: #e0e0e0;
+    border-color: #3a3a5a;
+}
+body.dark-theme .result-box {
+    background: #1e1e2f;
+    color: #e0e0e0;
+    border-left-color: #60a5fa;
+}
+body.dark-theme .option-btn {
+    background: #3a3a5a;
+    color: #e0e0e0;
+}
+body.dark-theme .option-btn:hover { background: #4a4a6a; }
+body.dark-theme #question-text { color: #ffffff; }
+body.dark-theme footer {
+    background: #0f0f1a;
+    color: #b0b0d0;
+}
+body.dark-theme .page-title { color: #ffffff; }
+/* Специальные переопределения для блоков "Проблема", "Решение", "Статистика" на главной */
+body.dark-theme [style*="background: white"] {
+    background: #2d2d44 !important;
+    color: #e0e0e0 !important;
+}
+body.dark-theme [style*="background: #fee2e2"] {
+    background: #4a1a1a !important;
+    color: #ffb3b3 !important;
+}
+body.dark-theme [style*="background: #d1e7dd"] {
+    background: #1a3a2a !important;
+    color: #b3ffcc !important;
+}
+body.dark-theme [style*="background: #eef2ff"] {
+    background: #1e2a4a !important;
+    color: #cce4ff !important;
+}
+
+
+/**/
+/* -------------------- ТЁМНАЯ ТЕМА (исправление для блоков "Проблема", "Решение", "Статистика") -------------------- */
+body.dark-theme {
+    background: radial-gradient(circle at 30% 10%, #0f0c29, #24243e);
+    color: #f0f0f0;
+}
+body.dark-theme::before {
+    background-image: radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.05) 2%, transparent 2.5%);
+}
+/* Карточки и общие элементы */
+body.dark-theme .card {
+    background: rgba(30, 30, 50, 0.85);
+    backdrop-filter: blur(4px);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+}
+body.dark-theme .card h3 { color: #ffffff; }
+body.dark-theme .card p { color: #c0c0e0; }
+body.dark-theme .card .salary { color: #a0b4ff; }
+body.dark-theme .card::before {
+    background: linear-gradient(90deg, #60a5fa, #c084fc);
+}
+body.dark-theme .filter-section {
+    background: rgba(30, 30, 50, 0.8);
+    color: #f0f0f0;
+}
+body.dark-theme .filter-section select,
+body.dark-theme .filter-section input {
+    background: #1e1e2f;
+    color: #e0e0e0;
+    border-color: #3a3a5a;
+}
+body.dark-theme .calculator-box,
+body.dark-theme .quiz-container {
+    background: #2d2d44;
+    color: #e0e0e0;
+}
+body.dark-theme .form-group label { color: #f0f0f0; }
+body.dark-theme .form-group select,
+body.dark-theme .form-group input {
+    background: #1e1e2f;
+    color: #e0e0e0;
+    border-color: #3a3a5a;
+}
+body.dark-theme .result-box {
+    background: #1e1e2f;
+    color: #e0e0e0;
+    border-left-color: #60a5fa;
+}
+body.dark-theme .option-btn {
+    background: #3a3a5a;
+    color: #e0e0e0;
+}
+body.dark-theme .option-btn:hover { background: #4a4a6a; }
+body.dark-theme #question-text { color: #ffffff; }
+body.dark-theme footer {
+    background: #0f0f1a;
+    color: #b0b0d0;
+}
+body.dark-theme .page-title { color: #ffffff; }
+
+/* ========== ИСПРАВЛЕНИЕ ДЛЯ БЛОКОВ "ПРОБЛЕМА", "РЕШЕНИЕ", "СТАТИСТИКА" ========== */
+/* Переопределяем фоны и цвета для элементов с инлайн-стилями */
+body.dark-theme div[style*="background: #fee2e2"],
+body.dark-theme div[style*="background:#fee2e2"] {
+    background: #4a1a1a !important;
+    color: #ffb3b3 !important;
+}
+body.dark-theme div[style*="background: #fee2e2"] *,
+body.dark-theme div[style*="background:#fee2e2"] * {
+    color: #ffd6d6 !important;
+}
+
+body.dark-theme div[style*="background: #d1e7dd"],
+body.dark-theme div[style*="background:#d1e7dd"] {
+    background: #1a3a2a !important;
+    color: #b3ffcc !important;
+}
+body.dark-theme div[style*="background: #d1e7dd"] *,
+body.dark-theme div[style*="background:#d1e7dd"] * {
+    color: #ccffdd !important;
+}
+
+body.dark-theme div[style*="background: #eef2ff"],
+body.dark-theme div[style*="background:#eef2ff"] {
+    background: #1e2a4a !important;
+    color: #cce4ff !important;
+}
+body.dark-theme div[style*="background: #eef2ff"] *,
+body.dark-theme div[style*="background:#eef2ff"] * {
+    color: #dcecff !important;
+}
+
+/**/
+/* -------------------- ТЁМНАЯ ТЕМА: БЛОК ИНСТРУКЦИИ В КВИЗЕ -------------------- */
+body.dark-theme .quiz-container div[style*="background: #f8f9fa"],
+body.dark-theme .quiz-container div[style*="background:#f8f9fa"] {
+    background: #2d2d44 !important;
+    color: #e0e0e0 !important;
+    border-left-color: #60a5fa !important;
+}
+body.dark-theme .quiz-container div[style*="background: #f8f9fa"] *,
+body.dark-theme .quiz-container div[style*="background:#f8f9fa"] * {
+    color: #e0e0e0 !important;
+}
+body.dark-theme .quiz-container div[style*="background: #f8f9fa"] ul,
+body.dark-theme .quiz-container div[style*="background:#f8f9fa"] ul {
+    color: #c0c0e0 !important;
+}
+body.dark-theme .quiz-container div[style*="background: #f8f9fa"] li,
+body.dark-theme .quiz-container div[style*="background:#f8f9fa"] li {
+    color: #c0c0e0 !important;
+}
