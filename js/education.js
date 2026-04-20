@@ -22,6 +22,8 @@ function renderEducation(field) {
         else if (edu.name.includes('Аграрный')) logoSrc = 'images/agrarian.png';
         else if (edu.name.includes('колледж')) logoSrc = 'images/college.png';
 
+        else if (edu.name.includes('IT-куб') || edu.name.includes('itcube')) logoSrc = 'images/itcube.png';
+
         card.innerHTML = `
             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
                 <img src="${logoSrc}" alt="${edu.name}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 12px;">
