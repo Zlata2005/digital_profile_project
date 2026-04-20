@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровой профиль Ульяновской области</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-chart-line"></i> Цифровой профиль Ульяновской области</h1>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+            <a href="professions.html"><i class="fas fa-briefcase"></i> Профессии</a>
+            <a href="companies.html"><i class="fas fa-building"></i> Компании</a>
+            <a href="education.html"><i class="fas fa-graduation-cap"></i> Обучение</a>
+            <a href="quiz.html"><i class="fas fa-question-circle"></i> Квиз</a>
+            <a href="calculator.html"><i class="fas fa-calculator"></i> Калькулятор</a>
+        </nav>
+        <div style="text-align: right; margin-top: -40px; margin-right: 20px;">
+            <button id="themeToggle" class="theme-btn" style="background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer;">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="page-title">Ваш гид по карьере в регионе</h2>
+
+        <!-- Блок статистики (кликабельные карточки) -->
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 40px;">
+            <a href="professions.html" class="card-link" style="text-decoration: none; display: block; width: 220px;">
+                <div class="card" style="text-align: center; width: 100%;">
+                    <i class="fas fa-briefcase" style="font-size: 2.5rem; color: #4361ee;"></i>
+                    <h3 id="profCount">0</h3>
+                    <p>профессий</p>
+                </div>
+            </a>
+            <a href="companies.html" class="card-link" style="text-decoration: none; display: block; width: 220px;">
+                <div class="card" style="text-align: center; width: 100%;">
+                    <i class="fas fa-building" style="font-size: 2.5rem; color: #4361ee;"></i>
+                    <h3 id="companyCount">0</h3>
+                    <p>компаний</p>
+                </div>
+            </a>
+            <a href="education.html" class="card-link" style="text-decoration: none; display: block; width: 220px;">
+                <div class="card" style="text-align: center; width: 100%;">
+                    <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: #4361ee;"></i>
+                    <h3 id="eduCount">0</h3>
+                    <p>учебных заведений</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Блок "Актуальность и решение проблемы" -->
+        <div style="background: white; border-radius: 28px; padding: 30px; margin: 40px 0; box-shadow: var(--shadow);">
+            <h3 style="font-size: 1.6rem; margin-bottom: 20px; color: var(--primary);">
+                <i class="fas fa-chart-line"></i> Актуальность для региона
+            </h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="background: #fee2e2; border-radius: 20px; padding: 20px; height: 100%;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #b91c1c;"></i>
+                        <h4 style="margin: 15px 0 10px;">Проблема</h4>
+                        <ul style="padding-left: 20px; color: #333;">
+                            <li>Дефицит IT-кадров – 70% компаний не могут найти специалистов</li>
+                            <li>Ежегодно из региона уезжает до 30% выпускников IT-специальностей</li>
+                            <li>Нет единого ресурса: профессии, зарплаты, компании, обучение – разрознены</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; font-size: 2rem; color: var(--primary);">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="background: #d1e7dd; border-radius: 20px; padding: 20px; height: 100%;">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; color: #0f5132;"></i>
+                        <h4 style="margin: 15px 0 10px;">Решение сайта</h4>
+                        <ul style="padding-left: 20px; color: #333;">
+                            <li>Актуальные профессии с зарплатами и навыками – ориентир для соискателей</li>
+                            <li>Каталог местных компаний и вузов – показывает, что можно остаться в регионе</li>
+                            <li>Квиз и калькулятор – помогают выбрать карьеру и оценить доход</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; text-align: center; background: #eef2ff; border-radius: 20px; padding: 20px;">
+                <p style="font-size: 1.2rem;">
+                    <i class="fas fa-chart-simple"></i> По данным Центра занятости Ульяновской области, 
+                    <strong>в IT-сфере открыто на 40% больше вакансий, чем год назад</strong>, 
+                    а средняя зарплата выросла до 85 000 руб.
+                </p>
+            </div>
+        </div>
+
+        <!-- Приветственный блок -->
+        <div style="background: white; border-radius: 28px; padding: 40px; box-shadow: var(--shadow); text-align: center;">
+            <p style="font-size: 1.3rem; margin-bottom: 30px;">
+                Актуальные цифровые профессии, ведущие работодатели и программы обучения – всё в одном месте.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="professions.html" class="btn"><i class="fas fa-search"></i> Изучить профессии</a>
+                <a href="companies.html" class="btn" style="background: linear-gradient(135deg, #2ecc71, #27ae60);"><i class="fas fa-handshake"></i> Найти компанию</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Цифровой профиль региона. Проект для недели студенческой науки. Выставка программных продуктов</p>
+        <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> info@digit73.ru</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function animateCounter(elementId, targetNumber, duration = 1500) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            let steps = duration / 16;
+            let increment = targetNumber / steps;
+            let current = 0;
+            function update() {
+                current += increment;
+                if (current < targetNumber) {
+                    element.innerText = Math.floor(current);
+                    requestAnimationFrame(update);
+                } else {
+                    element.innerText = targetNumber;
+                }
+            }
+            update();
+        }
+        window.addEventListener('load', () => {
+            animateCounter('profCount', professions.length);
+            animateCounter('companyCount', companies.length);
+            animateCounter('eduCount', education.length);
+        });
+    </script>
+</body>
+</html>
