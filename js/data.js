@@ -108,18 +108,45 @@ const professions = [
 // Удалены: Mobyte, Кибербез, IT-компания "Эксперт", Ulyanovsk Cloud и др.
 // Добавлены реальные IT-компании Ульяновска.
 const companies = [
-    { id: 1, name: "СимбирСофт", field: "IT", description: "Разработка заказного ПО, мобильных приложений.", vacancies: "https://simbirsoft.com/career" },
-    { id: 2, name: "Банк ВТБ (Ульяновск)", field: "Финансы", description: "Отделение банка, финансовые услуги.", vacancies: "https://vtb.ru/career" },
-    { id: 3, name: "Сбербанк", field: "Финансы", description: "Кредитование, вклады, инвестиции.", vacancies: "https://sberbank.ru/career" },
-    { id: 4, name: "Авиастар-СП", field: "Производство", description: "Авиастроение, производство самолётов.", vacancies: "https://aviastar-sp.ru/career" },
-    { id: 5, name: "УАЗ", field: "Производство", description: "Автомобильный завод.", vacancies: "https://uaz.ru/career" },
-    { id: 6, name: "Ростелеком", field: "IT", description: "Телекоммуникации, облачные сервисы.", vacancies: "https://rostelecom.ru/career" },
-    { id: 7, name: "Альфа-Банк", field: "Финансы", description: "Банковские услуги, финтех.", vacancies: "https://alfabank.ru/career" },
+    { id: 1, name: "СимбирСофт", field: "IT", description: "Разработка заказного ПО, мобильных приложений.", 
+        vacancies: "https://simbirsoft.com/career" },
+
+    { id: 2, name: "Банк ВТБ (Ульяновск)", field: "Финансы", description: "Отделение банка, финансовые услуги.", 
+        vacancies: "https://vtb.ru/career" },
+
+    { id: 3, name: "Сбербанк", field: "Финансы", description: "Кредитование, вклады, инвестиции.", 
+        vacancies: "https://sberbank.ru/career" },
+
+    { id: 4, name: "Авиастар-СП", field: "Производство", description: "Авиастроение, производство самолётов.", 
+        vacancies: "https://aviastar-sp.ru/career" },
+
+    { id: 5, name: "УАЗ", field: "Производство", description: "Автомобильный завод.",
+         vacancies: "https://uaz.ru/career" },
+
+    { id: 6, name: "Ростелеком", field: "IT", description: "Телекоммуникации, облачные сервисы.", 
+        vacancies: "https://rostelecom.ru/career" },
+
+    { id: 7, name: "Альфа-Банк", field: "Финансы", description: "Банковские услуги, финтех.", 
+        vacancies: "https://alfabank.ru/career" },
+
     // ----- НОВЫЕ РЕАЛЬНЫЕ КОМПАНИИ (добавлены) -----
-    { id: 8, name: "Simtex", field: "IT", description: "Разработка программного обеспечения для бизнеса.", vacancies: "https://simtex.ru/career" },
-    { id: 10, name: "Инфософт", field: "IT", description: "Разработка и внедрение 1С, IT-консалтинг.", vacancies: "https://infosoft73.ru/career" },
-    { id: 11, name: "АйТи-Сервис", field: "IT", description: "IT-аутсорсинг, системное администрирование.", vacancies: "https://itservice73.ru/career" },
-    { id: 12, name: "НПО «Марс»", field: "Производство", description: "Производство электроники, автоматизация.", vacancies: "https://npo-mars.ru/career" }
+    { id: 8, name: "Simtex", field: "IT", description: "Разработка программного обеспечения для бизнеса.", 
+        vacancies: "https://simtex.ru/career" },
+
+    { id: 10, name: "Инфософт", field: "IT", description: "Разработка и внедрение 1С, IT-консалтинг.", 
+        // vacancies: "https://infosoft73.ru/career" 
+        vacancies: "http://www.infosoft.ru/"
+    },
+
+    { id: 11, name: "АйТи-Сервис", field: "IT", description: "IT-аутсорсинг, системное администрирование.", 
+        // vacancies: "https://itservice73.ru/career" 
+        vacancies: "https://ntp.serve-it.ru/?ysclid=mo93c7k5ip811683044"
+    },
+
+    { id: 12, name: "НПО «Марс»", field: "Производство", description: "Производство электроники, автоматизация.", 
+        // vacancies: "https://npo-mars.ru/career"
+        vacancies: "https://ulyanovsk.hh.ru/employer/1067959?ysclid=mo92o3npwf9272360&tab=DESCRIPTION" 
+    }
 ];
 
 // ==================== 3. УЧЕБНЫЕ ЗАВЕДЕНИЯ ====================
@@ -127,14 +154,50 @@ const companies = [
 // Добавлены реальные учебные заведения: УлГПУ, авиационный колледж, IT-куб.
 const education = [
     // ----- УлГТУ (на первом месте) -----
-    { id: 2, name: "УлГТУ (ФИСТ – факультет информационных систем и технологий)", field: "IT", description: "09.03.04 Программная инженерия, 09.03.01 Информатика и вычислительная техника, 09.03.02 ИС, 09.03.03 Прикладная информатика, робототехника.", link: "https://ulstu.ru" },
+    { id: 2, name: "УлГТУ (ФИСТ – факультет информационных систем и технологий)", 
+        field: "IT", 
+        description: "09.03.04 Программная инженерия, 09.03.01 Информатика и вычислительная техника, 09.03.02 ИС, 09.03.03 Прикладная информатика, робототехника.", 
+        link: "https://ulstu.ru" 
+    },
+
     { id: 3, name: "УлГТУ (Инженерно-экономический факультет)", field: "Управление", description: "38.03.02 Менеджмент, 38.03.04 ГМУ, 38.03.03 Управление персоналом.", link: "https://ulstu.ru" },
     // ----- УлГУ -----
-    { id: 1, name: "УлГУ (Факультет математики, информационных и авиационных технологий)", field: "IT", description: "Прикладная математика, ИС, прикладная информатика, информбезопасность, автоматизация, авиастроение.", link: "https://ulsu.ru" },
-    { id: 5, name: "УлГУ (Экономический факультет)", field: "Финансы", description: "Экономика, финансы и кредит, бизнес-информатика.", link: "https://ulsu.ru" },
+    
+    { id: 1, name: "УлГУ (Факультет математики, информационных и авиационных технологий)", 
+        field: "IT", 
+        description: "Прикладная математика, ИС, прикладная информатика, информбезопасность, автоматизация, авиастроение.", 
+        link: "https://ulsu.ru" 
+    },
+   
+    { id: 5, name: "УлГУ (Экономический факультет)", 
+        field: "Финансы", 
+        description: "Экономика, финансы и кредит, бизнес-информатика.", 
+        link: "https://ulsu.ru" 
+    },
     // ----- Остальные учебные заведения -----
-    { id: 6, name: "УлГПУ им. И.Н. Ульянова", field: "IT/Педагогика", description: "Информатика, цифровые технологии в образовании.", link: "https://ulspu.ru" },
-    { id: 4, name: "Ульяновский электромеханический колледж", field: "Производство", description: "Робототехника, автоматизация.", link: "#" },
-    { id: 7, name: "Ульяновский авиационный колледж", field: "IT/Производство", description: "Информационные системы, программирование, автоматизация.", link: "http://уавиак.рф" },
-    { id: 8, name: "Центр цифрового образования «IT-куб»", field: "IT", description: "Дополнительное образование для школьников и студентов: программирование, робототехника, Data Science.", link: "https://itcube.uln.ru" }
+    { id: 6, name: "УлГПУ им. И.Н. Ульянова", 
+        field: "IT/Педагогика", 
+        description: "Информатика, цифровые технологии в образовании.", 
+        link: "https://ulspu.ru" 
+    },
+    
+    { id: 4, name: "Ульяновский электромеханический колледж", 
+        field: "Производство", 
+        description: "Робототехника, автоматизация.", 
+        link: "https://uemc73.gosuslugi.ru/" 
+    },
+
+    { id: 7, name: "Ульяновский авиационный колледж", 
+        field: "IT/Производство", 
+        description: "Информационные системы, программирование, автоматизация.", 
+        // link: "http://уавиак.рф" 
+        link: "https://uaviak.ru/?ysclid=mo937m8v7p646048210"
+    },
+
+    { id: 8, name: "Центр цифрового образования «IT-куб»", 
+        field: "IT", 
+        description: "Дополнительное образование для школьников и студентов: программирование, робототехника, Data Science.",
+        //  link: "https://itcube.uln.ru" 
+         link: "https://rmc73.ru/czentr-czifrovogo-obrazovaniya-it-kub/?ysclid=mo922dneu1443908055"
+        }
 ];
